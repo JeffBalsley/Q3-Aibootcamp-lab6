@@ -8,6 +8,16 @@
 
 **Input**: User description: "Support for Overdue Todo Items - Users need a clear, visual way to identify which todos have not been completed by their due date, so they can prioritize their work and quickly see which tasks are past their due date."
 
+## Clarifications
+
+### Session 2026-08-21
+
+- Q: What exact text label should the overdue indicator display? → A: "Overdue" (plain text, matches spec terminology)
+- Q: What visual style should the "Overdue" indicator take in the todo card? → A: Small pill/chip badge (danger color background, white "Overdue" text) placed near the due date
+- Q: How should the "Overdue" badge be announced to screen reader users? → A: Live region (aria-live="polite") — announced automatically even without focus
+- Q: Should the Halloween theme's decorative emoji style extend to the overdue badge? → A: Yes, prefix the badge with the 👻 ghost emoji (decorative; the "Overdue" text remains the accessible name)
+- Q: Should the overdue badge replace the existing due-date text's styling, or appear as a separate element? → A: Due-date text stays unchanged; badge is a separate element placed next to it
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - See Overdue Todos at a Glance (Priority: P1)
@@ -72,8 +82,8 @@ As a todo application user who relies on assistive technology or has difficulty 
 - **FR-002**: A todo MUST be considered overdue only when all of the following are true: it has a due date set, that due date is earlier than the current date, and the todo is not marked complete.
 - **FR-003**: Completed todos MUST NOT be marked overdue, regardless of due date.
 - **FR-004**: Todos without a due date MUST NOT be marked overdue.
-- **FR-005**: System MUST visually distinguish overdue todos in the todo list using a distinct, accessible visual treatment (e.g., color and icon/label combination).
-- **FR-006**: The overdue indicator MUST include a non-color-dependent cue (text label or icon with accessible name) so overdue status is perceivable without relying on color alone.
+- **FR-005**: System MUST visually distinguish overdue todos in the todo list using a small pill/chip badge (danger color background, contrasting text) bearing a decorative 👻 glyph followed by the label "Overdue", placed as a separate element next to the todo's due date; the due date's own text styling MUST remain unchanged.
+- **FR-006**: The overdue indicator MUST be exposed to assistive technology via an `aria-live="polite"` region so the literal text label "Overdue" is announced automatically without requiring the element to receive focus; the decorative 👻 glyph MUST be hidden from assistive technology (e.g., `aria-hidden="true"`) so only "Overdue" is announced.
 - **FR-007**: Overdue status MUST update immediately when a todo is marked complete or its due date is edited, without requiring a page reload.
 - **FR-008**: The overdue visual treatment MUST meet WCAG AA color contrast requirements in both light and dark themes, consistent with existing design system colors.
 - **FR-009**: The feature MUST include automated tests covering the overdue determination logic (including the edge cases above) and the rendering of the overdue indicator.

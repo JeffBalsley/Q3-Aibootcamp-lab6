@@ -6,9 +6,9 @@
 
 ## Content Quality
 
-- [x] No implementation details (languages, frameworks, APIs)
+- [ ] No implementation details (languages, frameworks, APIs)
 - [x] Focused on user value and business needs
-- [x] Written for non-technical stakeholders
+- [ ] Written for non-technical stakeholders
 - [x] All mandatory sections completed
 
 ## Requirement Completeness
@@ -27,8 +27,8 @@
 - [x] All functional requirements have clear acceptance criteria
 - [x] User scenarios cover primary flows
 - [x] Feature meets measurable outcomes defined in Success Criteria
-- [x] No implementation details leak into specification
+- [ ] No implementation details leak into specification
 
 ## Notes
 
-- All items pass. No outstanding issues; spec is ready for `/speckit-clarify` or `/speckit-plan`.
+- FR-005/FR-006 now specify literal ARIA attribute syntax (`aria-live="polite"`, `aria-hidden="true"`) as a result of the 2026-08-21 clarification session. This is an implementation-level detail (HTML/ARIA API) leaking into the spec; consider rephrasing to a plain-language accessibility outcome during `/speckit-plan` if strict spec/plan separation is required.
