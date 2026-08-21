@@ -33,7 +33,27 @@
 
   /* Transitions */
   --transition: all 0.2s ease;
+
+  /* Overdue badge text color (contrast-checked against --danger-color) */
+  --overdue-badge-text: #ffffff;
 }
+
+/* Overdue Badge (shared across themes; colors sourced from theme custom properties) */
+.overdue-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 4px 0 0 0;
+  padding: 2px var(--space-xs);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  background-color: var(--danger-color);
+  color: var(--overdue-badge-text);
+  border-radius: var(--radius-md);
+  width: fit-content;
+}
+
 
 /* Dark Mode */
 [data-theme="dark"] {
@@ -50,4 +70,7 @@
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+
+  /* Dark theme's lighter --danger-color needs dark text to meet WCAG AA contrast */
+  --overdue-badge-text: #1a1a1a;
 }
